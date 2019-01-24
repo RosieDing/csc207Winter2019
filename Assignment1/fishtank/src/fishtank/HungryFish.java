@@ -131,6 +131,9 @@ public class HungryFish {
      */
     public void move() {
 
+        if(c > 46||c<0){
+            turnAround();
+        }
         // Move one spot to the right or left.
         if (goingRight) {
             c += 1;
@@ -151,16 +154,14 @@ public class HungryFish {
         // Figure out whether to move up or down, or neither.
         d = Math.random();
         // If it's elss tahn 10%, move up or down.
-        if (d < 0.1) {
-            // Increment
-            r += 1;
-        } else if (d < 0.2) {
-            // Decrement
-            r -= 1;
-        }
-
-        if(c > 46||c<0){
-            turnAround();
+        if(r>0 && r< 106) {
+            if (d < 0.1) {
+                // Increment
+                r += 1;
+            } else if (d < 0.2) {
+                // Decrement
+                r -= 1;
+            }
         }
     }
 }
