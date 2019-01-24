@@ -153,5 +153,9 @@ public class Fish {
         } else if (d < 0.2) {
             r -= 1;
         }
+
+        if(c > 46||c<0){
+            turnAround();
+        }
     }
 }
