@@ -158,5 +158,9 @@ public class HungryFish {
             // Decrement
             r -= 1;
         }
+
+        if(c > 46||c<0){
+            turnAround();
+        }
     }
 }
