@@ -47,11 +47,14 @@ public class Fish {
      * Causes this fish to blow a bubble.
      */
     protected void blowBubble() {
-		  Bubble b = new Bubble();
-		  b.setLocation(c, r);
-		  System.out.println(r + " " + c);
-
-			FishTank.myLittleFishies[r][c] = b;
+		  if (0<r && r<106 && c > 0 && c < 46) {
+              if (FishTank.myLittleFishies[r][c] == null) {
+                  Bubble b = new Bubble();
+                  b.setLocation(c, r);
+                  System.out.println(r + " " + c);
+                  FishTank.myLittleFishies[r][c] = b;
+              }
+          }
     }
 
 
@@ -130,7 +133,9 @@ public class Fish {
      * Causes this item to take its turn in the fish-tank simulation.
      */
     public void move() {
-
+        if(c > 46||c < 1){
+            turnAround();
+        }
         // Move one spot to the right or left.
         if (goingRight) {
             c += 1;
@@ -148,14 +153,16 @@ public class Fish {
 
         // Figure out whether to move up or down, or neither.
 		d = Math.random();
-        if (d < 0.1) {
-            r += 1;
-        } else if (d < 0.2) {
-            r -= 1;
+        if (1 < r && r < 105) {
+            if (d < 0.1) {
+                r += 1;
+            } else if (d < 0.2) {
+                r -= 1;
+            }
+        }else{
+            r = 1;
         }
 
-        if(c > 46||c<0){
-            turnAround();
-        }
+
     }
 }
