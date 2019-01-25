@@ -46,7 +46,6 @@ public class HungryFish {
      * Causes this fish to blow a bubble.
      */
     protected void blowBubble() {
-        if (0<r && r<106 && c > 0 && c <46) {
             if (FishTank.myLittleFishies[r][c] == null) {
                 Bubble b = new Bubble();
                 b.setLocation(c, r);
@@ -54,7 +53,7 @@ public class HungryFish {
                 FishTank.myLittleFishies[r][c] = b;
             }
         }
-        }
+
 
 
 
@@ -134,9 +133,12 @@ public class HungryFish {
      * Causes this item to take its turn in the fish-tank simulation.
      */
     public void move() {
-        if(c > 46||c < 1){
+        if(c < 3 && (!goingRight) ){
+            turnAround();
+        }else if(c ==47 && goingRight){
             turnAround();
         }
+
         // Move one spot to the right or left.
         if (goingRight) {
             c += 1;
@@ -153,14 +155,17 @@ public class HungryFish {
 
         // Figure out whether to move up or down, or neither.
         d = Math.random();
-        if (1 <r && r< 105) {
+
             if (d < 0.1) {
+                if (r < 105){
                 r += 1;
+                }
             } else if (d < 0.2) {
+                if(r > 2){
                 r -= 1;
+                }
             }
-        }else {
-            r = 1;
+
         }
     }
-    }
+
