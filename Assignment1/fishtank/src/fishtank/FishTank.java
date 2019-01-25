@@ -77,11 +77,15 @@ public class FishTank {
                           ((HungryFish) myLittleFishies[a][b]).move();
                         }if (myLittleFishies[a][b] instanceof Bubble) {
                           // Figure out whether to float left or right, if at all.
+                        if(a>106){
+                            myLittleFishies[a][b] = null;
+                        }else{
                           Bubble heybub= (Bubble) myLittleFishies[a][b];
                           heybub.d = Math.random();
                           if (heybub.d < 0.33) heybub.floatStraightUp();
                           else if (heybub.d < 0.66) heybub.floatRightUp();
                           else /* heybub.d >= 0.66 */ heybub.floatLeftUp();
+                        }
                         }
                 }
                 }
