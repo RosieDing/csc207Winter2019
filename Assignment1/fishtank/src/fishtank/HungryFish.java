@@ -46,6 +46,7 @@ public class HungryFish {
      * Causes this fish to blow a bubble.
      */
     protected void blowBubble() {
+        if (0<r && r<47 && c > 0 && c < 104) {
             if (FishTank.myLittleFishies[r][c] == null) {
                 Bubble b = new Bubble();
                 b.setLocation(c, r);
@@ -53,9 +54,7 @@ public class HungryFish {
                 FishTank.myLittleFishies[r][c] = b;
             }
         }
-
-
-
+        }
 
 
     /**
