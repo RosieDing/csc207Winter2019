@@ -135,7 +135,7 @@ public class Fish {
     public void move() {
         if(c < 3 && (!goingRight) ){
             turnAround();
-        }else if(c ==47 && goingRight){
+        }else if(c > 46 && goingRight){
             turnAround();
         }
         // Move one spot to the right or left.
@@ -156,11 +156,11 @@ public class Fish {
         // Figure out whether to move up or down, or neither.
 		d = Math.random();
         if (d < 0.1) {
-            if (r < 105){
+            if (r < 104){
                 r += 1;
             }
         } else if (d < 0.2) {
-            if(r > 2){
+            if(r > 3){
                 r -= 1;
             }
         }
