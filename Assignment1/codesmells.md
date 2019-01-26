@@ -44,7 +44,7 @@ Finally, in FishFrame class, each time using getter and setter method to call an
 * [class fish
    reverseAppearance line 66-81] 
 
-###Description:
+### Description:
 
 [In this method, we state all the possible character of appearance in complex cases. 
 But many of the cases are useless.]
