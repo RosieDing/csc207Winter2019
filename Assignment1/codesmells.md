@@ -121,9 +121,10 @@ we do not need to create a new string, just use the object we have already creat
 
 ============================================================
 
-## Code Smell 5: [Write the code smell name]
+## Code Smell 5: [bloaters]
 
-### Code Smell Category: [Write the code smell category name]
+### Code Smell Category: 
+[Class fishTank line 31-58]
 
 ### List of classes and line numbers involved:
 
@@ -131,7 +132,8 @@ we do not need to create a new string, just use the object we have already creat
 
 ### Description:
 
-[In your own words, explain how the description of the code smell applies to this particular code.]
+[Under this situation, we need to check all the locations and delete out the objects in the same locations.
+]
 
 ### Solution:
 
@@ -140,6 +142,9 @@ how would you refactor the code?]
 
 ### Explanation
 
-[How does your solution get rid of the code smell? Write your explanation here.]
+[Since if we assign two object in the same location,
+ the first one will be covered to be useless code. 
+ So delete the conflict code will reduce the workload and simplify the method. 
+]
 
 ============================================================
