@@ -20,18 +20,19 @@ easy to learn. Hash marks (the number sign) indicate headers. Asterisks indicate
 
 ### Description:
 
-[In this method, we use the object”mylittefishies” from fishTank too much times.]
+[In Class fishFrame, we use the object”mylittefishies” from fishTank too much times.]
 
 
 ### Solution:
 
-[In fishTank class, change “mylittlefishies” into a private data field.
+[In fishTank class, change “mylittlefishies” to a private data field.
 Then, creating accessor and mutator(getter and setter methods) in fishTank.
 Finally, in FishFrame class, each time using getter and setter method to call and modify.]
 
 
 ### Explanation
-[Since we add the getter and setter method, in each time to access the data.]
+[Since we add the getter and setter method, each time when we need to access the data, 
+we can use the method to access and modify the data we need.]
 
 ============================================================
 
@@ -46,13 +47,13 @@ Finally, in FishFrame class, each time using getter and setter method to call an
 
 ### Description:
 
-[In this method, we state all the possible character of appearance in complex cases. 
-But many of the cases are useless.]
+[In this method, we state all the possible character of appearance in complex cases by switching statement. 
+But many of the cases are useless and annoying.]
 
 
 ### Solution:
 
-[In this class, we can use if method to apply the transformation between “<” and ”>”.]
+[In this class, we can use if statement to apply the transformation between “<” and ”>”.]
 
 ### Explanation
 
@@ -99,12 +100,11 @@ changing fish class as a superclass could reduce the duplicate code in hungry fi
 
 ### List of classes and line numbers involved:
 
-* [class bubble
- line 82-134]
+* [class bubble line 82-134]
 
 ### Description:
 
-[in these lines, each time we need to change the appearance of bubble,
+[In these lines, each time we need to change the appearance of bubble,
  the appearance need to be assign to a new string.]
 
 ### Solution:
@@ -124,11 +124,11 @@ we do not need to create a new string, just use the object we have already creat
 ## Code Smell 5: [bloaters]
 
 ### Code Smell Category: 
-[Class fishTank line 31-58]
+[long method]
 
 ### List of classes and line numbers involved:
 
-* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
+* [Class fishTank line 31-58]
 
 ### Description:
 
@@ -144,7 +144,6 @@ how would you refactor the code?]
 
 [Since if we assign two object in the same location,
  the first one will be covered to be useless code. 
- So delete the conflict code will reduce the workload and simplify the method. 
-]
+ So delete the conflict code will reduce the workload and simplify the method. ]
 
 ============================================================
