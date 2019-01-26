@@ -134,7 +134,7 @@ public class HungryFish {
     public void move() {
         if(c < 3 && (!goingRight) ){
             turnAround();
-        }else if(c ==47 && goingRight){
+        }else if(c > 46 && goingRight){
             turnAround();
         }
 
@@ -156,7 +156,7 @@ public class HungryFish {
         d = Math.random();
 
             if (d < 0.1) {
-                if (r < 105){
+                if (r < 104){
                 r += 1;
                 }
             } else if (d < 0.2) {
