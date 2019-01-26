@@ -58,7 +58,7 @@ But many of the cases are useless and annoying.]
 ### Explanation
 
 [In this class, for the appearance of fish(“><>”),  we only use “<”,”>” . 
-So in this method, the if statement to transfer from these two sting will makes the methods efficient.]
+So in this method, using if statement to transfer from these two sting will makes the methods efficient.]
 
 ============================================================
 
@@ -73,7 +73,7 @@ So in this method, the if statement to transfer from these two sting will makes 
 
 ### Description:
 
-[In class hungry fish, except the appearance, many of the methods are identical with fish.]
+[In class hungry fish, except the appearance, most of the methods are identical with fish.]
 
 
 ### Solution:
@@ -89,7 +89,7 @@ And also for the data field appearance, we need to assign another appearance for
 changing fish class as a superclass could reduce the duplicate code in hungry fish.
  Hungry fish could directly use the same code. 
  And also the only difference from this two class is the appearance field and its method reverseAppearance. 
- So defining distinct method and string for hungry fish.]
+ So defining distinct method and strings for hungry fish.]
 
 
 ============================================================
@@ -105,18 +105,18 @@ changing fish class as a superclass could reduce the duplicate code in hungry fi
 ### Description:
 
 [In these lines, each time we need to change the appearance of bubble,
- the appearance need to be assign to a new string.]
+ the appearance need to be assign as a new string.]
 
 ### Solution:
 
-[In this method assign “.”,”o”,”O” into three objects.
- In the three method “floatStraingtUp”,”floatLeft”,”floatRightUp” 
+[In this method assign “.”,”o”,”O” into three different objects.
+ In the methods “floatStraingtUp”,”floatLeft”,”floatRightUp” 
  we need to change appearance between different objects.]
 
 ### Explanation
 
 [By assigning the new objects, for each time we need to change appearance, 
-we do not need to create a new string, just use the object we have already create.
+instead of creating a new string, just using the objects we have already create.
 ]
 
 ============================================================
@@ -124,7 +124,7 @@ we do not need to create a new string, just use the object we have already creat
 ## Code Smell 5: [bloaters]
 
 ### Code Smell Category: 
-[long method]
+[Large Class]
 
 ### List of classes and line numbers involved:
 
@@ -132,18 +132,19 @@ we do not need to create a new string, just use the object we have already creat
 
 ### Description:
 
-[Under this situation, we need to check all the locations and delete out the objects in the same locations.
+[In this class we need to assign different instance in the array. 
+But some objects have been assign to the same location.
 ]
 
 ### Solution:
 
-[In your own words, explain how you might solve this code smell:
-how would you refactor the code?]
+[Under this situation, we need to check all the locations and delete out the objects in the same locations.
+]
 
 ### Explanation
 
 [Since if we assign two object in the same location,
  the first one will be covered to be useless code. 
- So delete the conflict code will reduce the workload and simplify the method. ]
+ So deleting the conflict code will reduce the workload and simplify the method. ]
 
 ============================================================
