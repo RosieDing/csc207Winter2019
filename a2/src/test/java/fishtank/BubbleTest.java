@@ -26,4 +26,24 @@ public class BubbleTest {
         assertTrue(outOfRange);
     }
 
+    @Test
+    public void testBubbleShiftProbability(){
+        boolean cumulative_success = false;
+        int c = 0;//record the appearance of the bubble.
+        for (int i = 0; i < 1001; i ++){
+            bubble.setLocation(5,10);
+            bubble.update();
+            if(bubble.getX()== 4 || bubble.getX() == 6){
+                c++;
+                System.out.println(c);
+            }
+        }
+        if(c >280 && c < 380){
+            System.out.println(c);
+            cumulative_success = true;
+        }
+        assertTrue(cumulative_success);
+
+    }
+
 }
