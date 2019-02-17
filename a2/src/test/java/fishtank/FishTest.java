@@ -74,13 +74,10 @@ public class FishTest {
             fish.setLocation(5,10);
             fish.goingRight = false;
             fish.update();
-            FishTankEntity e = FishTank.getEntity(4,10);
-            if(e instanceof Fish){
+            if(fish.goingRight){
                 c++;
-                FishTank.deleteEntity(4,10);
             }
         }
-        System.out.println(c);
         if(c >49 && c < 151){
         System.out.println(c);
         cumulative_success = true;
