@@ -34,7 +34,7 @@ public class FishTest {
                 false; //notice: I can edit package private attributes!
             fish.update();
             //fish should move one tile left and eventually blow a bubble.
-            FishTankEntity e = FishTank.getEntity(5 - 1, 10);
+            FishTankEntity e = FishTank.getEntity(3, 10);
             if (e instanceof Bubble) {
                 bubbleMade = true;
                 break;
@@ -43,5 +43,48 @@ public class FishTest {
         //You could also write "assert bubbleMade", but using the JUnit version
         //makes the message much nicer if it fails.
         assertTrue(bubbleMade);
+    }
+
+    @Test
+    public void testFishBubblesPobability(){
+        boolean cumulative_success = false;
+        int c = 0;//record the appearance of the bubble.
+        for (int i = 0; i < 1000; i ++){
+            fish.setLocation(5,10);
+            fish.goingRight = false;
+            fish.update();
+            FishTankEntity e = FishTank.getEntity(3,10);
+            if(e instanceof Bubble){
+                c++;
+                FishTank.deleteEntity(3,10);
+            }
+        }
+        System.out.println(c);
+        if(c >49 && c < 151){
+            cumulative_success = true;
+        }
+        assertTrue(cumulative_success);
+    }
+
+    @Test
+    public void testFishTurningAroundPobability(){
+        boolean cumulative_success = false;
+        int c = 0;//record the appearance of the bubble.
+        for (int i = 0; i < 1001; i ++){
+            fish.setLocation(5,10);
+            fish.goingRight = false;
+            fish.update();
+            FishTankEntity e = FishTank.getEntity(4,10);
+            if(e instanceof Fish){
+                c++;
+                FishTank.deleteEntity(4,10);
+            }
+        }
+        System.out.println(c);
+        if(c >49 && c < 151){
+        System.out.println(c);
+        cumulative_success = true;
+        }
+        assertTrue(cumulative_success);
     }
 }

@@ -12,9 +12,9 @@ public class Fish extends FishTankEntity {
     /** Indicates whether this fish is moving right. */
     boolean goingRight;
 
-    /** This fish's first coordinate. */
+    /** This fish's x-coordinate. */
     int r;
-    /** This fish's second coordinate. */
+    /** This fish's y-coordinate. */
     private int c;
     /** The colour of this fish. */
     Color colour;
@@ -29,7 +29,13 @@ public class Fish extends FishTankEntity {
         goingRight = true;
     }
 
-
+    /**
+     * Confirm in the position there is a fish appear.
+     */
+    @Override
+    boolean isfish(){
+        return true;
+    }
 
     /**
      * Set this item's location.
@@ -37,16 +43,16 @@ public class Fish extends FishTankEntity {
      * @param b  the second coordinate.
      */
     public void setLocation(int a, int b) {
-      r = a;
-      c = b;
+      c = a;
+      r = b;
     }
 
     int getX() {
-        return r;
+        return c;
     }
 
     int getY() {
-        return c;
+        return r;
     }
 
 
@@ -54,11 +60,14 @@ public class Fish extends FishTankEntity {
      * Causes this fish to blow a bubble.
      */
     protected void blowBubble() {
-		  Bubble b = new Bubble();
-		  b.setLocation(c, r);
-		  System.out.println(r + " " + c);
-
-		  FishTank.addEntity(c, r, b);
+        if (0<r && r <106 && c > 0 && c< 46 ){
+		  if(FishTank.getEntity(c-1,r) == null){
+		      Bubble b = new Bubble();
+		      b.setLocation(c-1, r);
+		      System.out.println((c-1) + " " + r);
+		      FishTank.addEntity((c-1), r, b);
+		  }
+        }
     }
 
 
@@ -82,7 +91,6 @@ public class Fish extends FishTankEntity {
             default: reverse += appearance.charAt(i); break;
             }
         }
-
         return reverse;
     }
 
@@ -141,12 +149,36 @@ public class Fish extends FishTankEntity {
      * Causes this item to take its turn in the fish-tank simulation.
      */
     public void update() {
-
         // Move one spot to the right or left.
+        if(c < 2 && (!goingRight) ){
+            turnAround();
+        }else if(c > 103 && goingRight){
+            turnAround();
+        }
+
         if (goingRight) {
+            if(FishTank.getEntity(c+1,r)== null){
             c += 1;
-        } else {
+            if(FishTank.getSeaweedEntity(c,r) != 0)
+            {
+                FishTank.deleteSeaweedEnitity(c,r);
+            }
+            }
+            else{
+                turnAround();
+            }
+            }
+        else{
+            if(FishTank.getEntity(c-1,r)== null){
             c -= 1;
+                if(FishTank.getSeaweedEntity(c,r) != 0)
+                {
+                    FishTank.deleteSeaweedEnitity(c,r);
+                }
+            }
+            else{
+                turnAround();
+            }
         }
 
         // Figure out whether I blow a bubble.
@@ -160,9 +192,18 @@ public class Fish extends FishTankEntity {
         // Figure out whether to move up or down, or neither.
 		d = Math.random();
         if (d < 0.1) {
-            r += 1;
+            if(r< 47){
+            if(FishTank.getEntity(c,r + 1)== null){
+            r += 1;}else{turnAround();}
+            }
         } else if (d < 0.2) {
-            r -= 1;
+            if(r>0) {
+                if (FishTank.getEntity(c, r - 1) == null) {
+                    r -= 1;
+                } else {
+                    turnAround();
+                }
+            }
         }
     }
 }

@@ -41,4 +41,12 @@ public class FollowingFishTest {
     assertEquals(2, vertDist);
     assertEquals(0, horizDist);
   }
+
+  @Test
+  public void turnToFace() {
+  }
+
+  @Test
+  public void update() {
+  }
 }

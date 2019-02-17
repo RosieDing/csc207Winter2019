@@ -30,30 +30,63 @@ public class FishTank {
     /**
      * The width (in entities) of the whole tank
      */
-    private static final int width = frameWidth/charWidth;
+    private static final int width = frameWidth / charWidth;
 
     /**
      * The height (in entities) of the whole tank
      */
-    private static final int height = frameHeight/charHeight;
+    private static final int height = frameHeight / charHeight;
 
 
     /**
      * (int)(640/6) columns, (int)(480/10) rows.
      */
     private static FishTankEntity[][] entities =
-        new FishTankEntity[width][height];
+            new FishTankEntity[width][height];
 
     private static boolean running = true;
 
-    public static void addEntity(int x, int y, FishTankEntity e) {
-        entities[x][y] = e;
-        e.setLocation(y, x);
+    private static int[][] seaweed_entities = new int[width][height];
+
+    public static void add_seaweed_entities(int x, int y, int s) {
+        seaweed_entities[x][y] = s;
+    }
+
+
+    public static int getSeaweedEntity(int x, int y) {
+        return seaweed_entities[x][y];
+    }
+
+    public static void deleteSeaweedEnitity(int x, int y) {
+        seaweed_entities[x][y] = 0;
     }
 
     public static FishTankEntity getEntity(int x, int y) {
         return entities[x][y];
     }
+
+    public static void addEntity(int x, int y, FishTankEntity e) {
+        entities[x][y] = e;
+        e.setLocation(x, y);
+        if (e instanceof Seaweed) {
+            int n;
+            n = ((Seaweed) e).getLenght();
+            for (int i = y + 1; i <= y + n; i++) {
+                add_seaweed_entities(x, i, n);
+            }
+        }
+    }
+
+
+//    public static void addEntity(int x, int y, FishTankEntity e) {
+//        entities[x][y] = e;
+//        e.setLocation(y, x);
+//    }
+
+        public static void deleteEntity(int x,int y){
+            FishTank.getEntity(x,y).delete();
+            entities[x][y] = null;
+        }
 
     public static void main(String[] args) {
 
@@ -77,6 +110,7 @@ public class FishTank {
         addEntity(24, 33, new Seaweed(6));
         addEntity(32, 25, new Seaweed(7));
         addEntity(13, 25, new Seaweed(5));
+
 
         // Show it all!
         f.setSize(frameWidth, frameHeight);
