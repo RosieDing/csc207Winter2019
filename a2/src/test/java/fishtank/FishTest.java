@@ -84,4 +84,101 @@ public class FishTest {
         }
         assertTrue(cumulative_success);
     }
+
+    @Test
+    public void testFishUpOrDown(){
+        boolean cumulative_success = false;
+        int c = 0;//record the appearance of the bubble.
+        for (int i = 0; i < 1000; i ++){
+            fish.setLocation(5,10);
+            fish.goingRight = false;
+            fish.update();
+            if(fish.getY()==9|| fish.getY() == 11){
+                c++;
+                System.out.println(c);
+            }
+        }
+        //System.out.println(c);
+        if(c >150 && c < 250){
+            cumulative_success = true;
+        }
+        assertTrue(cumulative_success);
+    }
+
+    @Test
+    public void testFishUppperBound(){
+        boolean keepshorizontal = true;
+        for (int i = 0; i < 200; i++) {
+            fish.setLocation(5, 0);
+            fish.goingRight = false;
+            fish.update();
+            if (fish.getY() < 0) {
+                keepshorizontal = false;
+                break;
+            }
+        }
+        assertTrue(keepshorizontal);
+    }
+
+    @Test
+    public void testFishLowerBound(){
+        boolean keepshorizontal = true;
+        for (int i = 0; i < 200; i++) {
+            fish.setLocation(5, 47);
+            fish.goingRight = false;
+            fish.update();
+            if (fish.getY() > 47) {
+                keepshorizontal = false;
+                break;
+            }
+        }
+        assertTrue(keepshorizontal);
+    }
+
+    @Test
+    public void testLeftBound(){
+        boolean keepshorizontal = true;
+        for (int i = 0; i < 200; i++) {
+            fish.setLocation(0, 10);
+            fish.goingRight = false;
+            fish.update();
+            if(fish.getX()<0){
+                keepshorizontal = false;
+                break;
+            }
+        }
+        assertTrue(keepshorizontal);
+    }
+
+    @Test
+    public void testRightBound(){
+        boolean keepshorizontal = true;
+        for (int i = 0; i < 200; i++) {
+            fish.setLocation(106, 10);
+            fish.goingRight = true;
+            fish.update();
+            if(fish.getX()>106){
+                keepshorizontal = false;
+                break;
+            }
+        }
+        assertTrue(keepshorizontal);
+    }
+
+    @Test
+    public void testCollision(){
+        Seaweed s = new Seaweed(5);
+        s.setLocation(5,6);
+        boolean collision_ability = true;
+        for(int i = 0; i< 200; i++){
+            fish.setLocation(6,6);
+            fish.goingRight = false;
+            fish.update();
+            if(FishTank.getEntity(5,6) instanceof Fish){
+                collision_ability = false;
+                break;
+            }
+        }
+        assertTrue(collision_ability);
+    }
 }
