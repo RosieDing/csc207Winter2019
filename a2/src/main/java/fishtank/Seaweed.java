@@ -129,16 +129,17 @@ public class Seaweed extends FishTankEntity {
         leanRight  =! leanRight;
 
 
-        for(int i = y+1; i<= y+l;i++){
+        for(int i = y+1; i <= y+l;i++){
           if(FishTank.getSeaweedEntity(x,i) == 0){
             l = i-y;
             break;
           }
-
         }
+
         update_times ++;
 
-        if(update_times == 200){
+        if(update_times == 200)
+        {
             update_times =- 200;
             if(l < length){
                 l ++;

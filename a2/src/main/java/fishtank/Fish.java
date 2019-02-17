@@ -13,9 +13,9 @@ public class Fish extends FishTankEntity {
     boolean goingRight;
 
     /** This fish's x-coordinate. */
-    int r;
+    int c;
     /** This fish's y-coordinate. */
-    private int c;
+    private int r;
     /** The colour of this fish. */
     Color colour;
 
