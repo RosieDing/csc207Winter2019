@@ -29,13 +29,7 @@ public class Fish extends FishTankEntity {
         goingRight = true;
     }
 
-    /**
-     * Confirm in the position there is a fish appear.
-     */
-    @Override
-    boolean isfish(){
-        return true;
-    }
+
 
     /**
      * Set this item's location.
