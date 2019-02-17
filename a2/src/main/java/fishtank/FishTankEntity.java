@@ -12,7 +12,6 @@ package fishtank;
 public abstract class FishTankEntity {
 
     private boolean exists = true;
-    private boolean existfish = false;
 
     abstract void update();
     abstract void setLocation(int x, int y);
@@ -24,12 +23,6 @@ public abstract class FishTankEntity {
     boolean exists() {
         return this.exists;
     }
-
-
-    boolean isfish(){
-        return this.existfish;
-    }
-
 
 
     abstract int getX();
