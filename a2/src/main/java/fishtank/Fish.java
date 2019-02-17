@@ -188,16 +188,19 @@ public class Fish extends FishTankEntity {
         if (d < 0.1) {
             if(r< 47){
             if(FishTank.getEntity(c,r + 1)== null){
-            r += 1;}else{turnAround();}
+            r += 1;}
+//            else{
+//                turnAround();}
             }
         } else if (d < 0.2) {
             if(r>0) {
                 if (FishTank.getEntity(c, r - 1) == null) {
                     r -= 1;
-                } else {
-                    turnAround();
+           }
+//                else {
+//                    turnAround();
                 }
             }
         }
     }
-}
+

@@ -24,7 +24,7 @@ public class Seaweed extends FishTankEntity {
 
     int height = l + this.y;
 
-    int update_times;
+    int update_times = 0;
 
     /**
      * Constructs a new seaweed item at the specified cursor
@@ -124,14 +124,7 @@ public class Seaweed extends FishTankEntity {
      */
     public void update() {
 
-      if(update_times < 200){
-        update_times ++;
-      }else{
-        update_times =- 200;
-        if(l < length){
-          l ++;
-        }
-      }
+
 
         leanRight  =! leanRight;
 
@@ -141,6 +134,15 @@ public class Seaweed extends FishTankEntity {
             l = i-y;
             break;
           }
+
+        }
+        update_times ++;
+
+        if(update_times == 200){
+            update_times =- 200;
+            if(l < length){
+                l ++;
+            }
         }
 
 

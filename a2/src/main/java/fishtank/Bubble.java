@@ -159,14 +159,15 @@ public class Bubble extends FishTankEntity {
             delete();
         } else if (FishTank.getEntity(x, y - 1) == null && d < 0.33) {
             floatStraightUp();
-        } else if (d < 0.66 && FishTank.getEntity(x + 1, y - 1) == null) {
-            if(x+1 < 105){
-            floatRightUp();}else{
-                delete();}
+        } else if(x+1 < 105){
+            if(d < 0.66 && FishTank.getEntity(x + 1, y - 1) == null) {
+            floatRightUp();
+            }
         } else /* heybub.d >= 0.66 */ {
             if (FishTank.getEntity(x - 1, y - 1) == null) {
                 if(x-1>0){
-                floatLeftUp();}else{
+                floatLeftUp();}
+                else{
                     delete();
                 }
             }
