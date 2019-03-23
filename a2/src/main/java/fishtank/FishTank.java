@@ -11,31 +11,31 @@ public class FishTank {
     /**
      * The width of a character.
      */
-    private static final int charWidth = 6;
+    private static  int charWidth = 6;
     /**
      * The height of a character.
      */
-    private static final int charHeight = 10;
+    private static  int charHeight = 10;
 
     /**
      * The width (in pixels) of the frame
      */
-    private static final int frameWidth = 640;
+    private static  int frameWidth = 640;
 
     /**
      * The height (in pixels) of the frame
      */
-    private static final int frameHeight = 480;
+    private static  int frameHeight = 480;
 
     /**
      * The width (in entities) of the whole tank
      */
-    private static final int width = frameWidth / charWidth;
+    private static  int width = frameWidth / charWidth;
 
     /**
      * The height (in entities) of the whole tank
      */
-    private static final int height = frameHeight / charHeight;
+    private static  int height = frameHeight / charHeight;
 
 
     /**
