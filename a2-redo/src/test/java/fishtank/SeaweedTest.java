@@ -10,6 +10,7 @@ public class SeaweedTest {
     private Seaweed seaweed;
     @Before
     public void setUp() {
+        TestUtilities.clearWholeFishtank();
         seaweed = new Seaweed(6);
     }
 

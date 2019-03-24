@@ -13,6 +13,7 @@ public class FollowingFishTest {
 
   @Before
   public void setUp() {
+        TestUtilities.clearWholeFishtank();
     followee = mock(Fish.class);
     //note: this is also why we use getters and setters so much in Java,
     //we wouldn't be able to mock the field itself if it were used instead

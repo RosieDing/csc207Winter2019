@@ -19,6 +19,7 @@ public class FishTest {
 
     @Before
     public void setUp() {
+        TestUtilities.clearWholeFishtank();
         fish = new Fish();
     }
 
